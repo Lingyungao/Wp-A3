@@ -42,17 +42,17 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href= "index.html"><button class="button button-small button-plain button-border" >
+                        <a href= "index.php"><button class="button button-small button-plain button-border" >
                             <b>Home</b>
                         </button></a>
                     </li>
                     <li>
-                        <a href="movieList.html"><button class="button button-small button-plain button-border" >
+                        <a href="movieList.php"><button class="button button-small button-plain button-border" >
                             <b>Movie Information</b>
                         </button></a>
                     </li>
                     <li>
-                        <a href="newsList.html"><button class="button button-small button-plain button-border" href="News.html">
+                        <a href="newsList.php"><button class="button button-small button-plain button-border" href="News.html">
                             <b>News</b>
                         </button></a>
                     </li>
