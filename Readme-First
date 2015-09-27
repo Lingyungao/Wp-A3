@@ -8,3 +8,4 @@ Movie seat number: seat type+movieseat+num (such as: samovieseatnum, spmovieseat
 Movie rank: movierank
 total ticket price: price
 different ticket type's price: TYPE's Name+PRICE (such as: saprice, spprice, b1price....)
+Movie Deal Voucher: moviedealvoucher
