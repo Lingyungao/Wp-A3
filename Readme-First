@@ -1,0 +1,10 @@
+variable name:
+
+Movie name: moviename
+Movie day: movieday
+Movie time: movietime
+Movie ticket type:movietickettype
+Movie seat: movieseat
+Movie rank: movierank
+total ticket price: price
+different ticket type's price: TYPE's Name+PRICE (such as: saprice, spprice, b1price....)
