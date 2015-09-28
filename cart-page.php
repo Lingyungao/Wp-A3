@@ -5,28 +5,28 @@
  * Date: 2015/9/27
  * Time: 12:29
  */
-  session_start();
-  error_reporting(E_ERROR | E_WARNING | E_PARSE);
+session_start();
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-  $required=array('film','day','time','price');
-  $valid=array('SA','SP','SC','FA','FC','B1','B2','B3');
-  $requiredCount=count($required);
-  $validCount=count($valid);
+$required=array('film','day','time','price');
+$valid=array('SA','SP','SC','FA','FC','B1','B2','B3');
+$requiredCount=count($required);
+$validCount=count($valid);
 
-  function nameVal($req)
-  {
-      global $required, $valid, $requiredCount, $validCount;
-      $reqI=$valI=0;
-      foreach ($req as $name => $value)
-      {
-          $message=
-              in_array($name, $required) ? "<span class='c'> REQUIRED (".++$reqI."/$requiredCount) :-)</span>" : (
-              in_array($name, $valid)    ? "<span class='c'> VALID (".++$valI."/$validCount) :-)</span>" : "<span> UNEXPECTED :-(</span>"
-              );
-          echo "<p>&lt;element name='<span>$name</span>' has value='<span>$value'</span> &gt;$message</p>";
-      }
-      echo "<p>You submitted <strong>$reqI of $requiredCount</strong> required fields and <strong>$valI of $validCount</strong> valid fields.</p>";
-  }
+function nameVal($req)
+{
+    global $required, $valid, $requiredCount, $validCount;
+    $reqI=$valI=0;
+    foreach ($req as $name => $value)
+    {
+        $message=
+            in_array($name, $required) ? "<span class='c'> REQUIRED (".++$reqI."/$requiredCount) :-)</span>" : (
+            in_array($name, $valid)    ? "<span class='c'> VALID (".++$valI."/$validCount) :-)</span>" : "<span> UNEXPECTED :-(</span>"
+            );
+        echo "<p>&lt;element name='<span>$name</span>' has value='<span>$value'</span> &gt;$message</p>";
+    }
+    echo "<p>You submitted <strong>$reqI of $requiredCount</strong> required fields and <strong>$valI of $validCount</strong> valid fields.</p>";
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -113,140 +113,138 @@
             </ul>
         </div>
     </nav>
-    </div>
     <!-- ~~~~Navigation area><!-->
-<div>
     <!-- Ticket Detail -->
     <form id="1">
-    <?php
-    echo $_POST['moviename'];
-    ?> (Rank:<?php echo $_POST['movierank']; ?>)
-    <br>
-    Showing at <?php echo $_POST['movieday']; ?>
-    <?php echo $_POST['movietime']; ?>
-    <br>
-    <table style="width:100%">
-        <style>
-            table, th, td {
-                border: 0px solid #FFF;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-                text-align: left;
-            }
-        </style>
-        <tr class="table-background-first">
-            <th>Ticket Type</th>
-            <th>Cost</th>
-            <th>Qty</th>
-            <th>Seats</th>
-            <th>Subtotal</th>
-        </tr>
         <?php
-        if ($_POST['samovieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+        echo $_POST['moviename'];
+        ?> (Rank:<?php echo $_POST['movierank']; ?>)
+        <br>
+        Showing at <?php echo $_POST['movieday']; ?>
+        <?php echo $_POST['movietime']; ?>
+        <br>
+        <table style="width:100%">
+            <style>
+                table, th, td {
+                    border: 0px solid #FFF;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    padding: 5px;
+                    text-align: left;
+                }
+            </style>
+            <tr class="table-background-first">
+                <th>Ticket Type</th>
+                <th>Cost</th>
+                <th>Qty</th>
+                <th>Seats</th>
+                <th>Subtotal</th>
+            </tr>
+            <?php
+            if ($_POST['samovieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Adult seats</td>
             <td>$12.00</td>
             <td>{$_POST['samovieseat']}</td>
             <td>{$_POST['samovieseatnum']}</td>
             <td>{$_POST['saprice']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['spmovieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['spmovieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Concession seats</td>
             <td>$10.00</td>
             <td>{$_POST['spmovieseat']}</td>
             <td>{$_POST['spmovieseatnum']}</td>
             <td>{$_POST['spprice']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['scmovieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['scmovieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Child seats</td>
             <td>$8.00</td>
             <td>{$_POST['scmovieseat']}</td>
             <td>{$_POST['scmovieseatnum']}</td>
             <td>{$_POST['scprice']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['famovieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['famovieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>First Class Adult seats</td>
             <td>$25.00</td>
             <td>{$_POST['famovieseat']}</td>
             <td>{$_POST['famovieseatnum']}</td>
             <td>{$_POST['faprice']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['fcmovieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['fcmovieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>First Class Child seats</td>
             <td>$20.00</td>
             <td>{$_POST['fcmovieseat']}</td>
             <td>{$_POST['fcmovieseatnum']}</td>
             <td>{$_POST['fcprice']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['b1movieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['b1movieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Beanbag seats (single person)</td>
             <td>$20.00</td>
             <td>{$_POST['b1movieseat']}</td>
             <td>{$_POST['b1movieseatnum']}</td>
             <td>{$_POST['b1price']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['b2movieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['b2movieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Beanbag seats (Up to 2 people)</td>
             <td>$20.00</td>
             <td>{$_POST['b2movieseat']}</td>
             <td>{$_POST['b2movieseatnum']}</td>
             <td>{$_POST['b2price']}</td>
         </tr>";
-        ?>
-        <?php
-        if ($_POST['b3movieseat']!="0")
-            echo
-            "<tr class='table-background-second'>
+            ?>
+            <?php
+            if ($_POST['b3movieseat']!="0")
+                echo
+                "<tr class='table-background-second'>
             <td>Beanbag seats (Up to 3 children)</td>
             <td>$20.00</td>
             <td>{$_POST['b3movieseat']}</td>
             <td>{$_POST['b3movieseatnum']}</td>
             <td>{$_POST['b3price']}</td>
         </tr>";
-        ?>
-        Delete from Cart
-
+            ?>
+            Delete from Cart
+            </table>
     </form>
-    </div>
-<div>
-    <?php
-    echo
-    "Total: {$_POST['price']}
+
+    <div>
+        <?php
+        echo
+        "Total: {$_POST['price']}
     <br>
     Meal and Movie Deal Voucher: {$_POST['moviedealvoucher']}
     <br>
     Grand Total: {$_POST['grandprice']}
     <br>
     Voucher Code: <input type='text' name='moviedealvoucher' id='moviedealvoucher'> <input type='submit' value='Apply'> <input type='submit' value='empty cart'> <input type='submit' value='Check out'>";
-    ?>
-</div>
+        ?>
+    </div>
 
     <!-- POST Tester Form (ie this page has a form that "self submits")  -->
     <!--
@@ -262,24 +260,23 @@
             </div>
         </form> -->
 
-        <!-- PHP Comments Below -->
-        <?php
-        /*
-        <h2>COOKIE Variables:</h2>
-        <?php
-        if (count($_COOKIE) > 0)
-        {
-          ?><h4>The following variables are SERVER SIDE and were detected as COOKIEs in your browser:</h4><?php  foreach ($_COOKIE as $name => $value)
-          { echo '<p>The value of <span>'.$name."</span> is <span>".$value."</span></p>"; }
-        } else { ?>
-        <p>There were no variables found SERVER SIDE lurking as COOKIEs in your browser.</p>
-        <?php } ?>
-        <h4>These are the cookies that are on your machine, detected CLIENT SIDE using javascript:</h4>
-        <p><span><script>document.write(document.cookie);</script></span></p>
-        <hr/><h4>Click <a href="<?php echo $_SERVER['HTTP_REFERER'];?>">here</a> to go back to your form, or hit the backspace key.</h4>
-        */
-        ?>
-        </p></div>
-</div>
+    <!-- PHP Comments Below -->
+    <?php
+    /*
+    <h2>COOKIE Variables:</h2>
+    <?php
+    if (count($_COOKIE) > 0)
+    {
+      ?><h4>The following variables are SERVER SIDE and were detected as COOKIEs in your browser:</h4><?php  foreach ($_COOKIE as $name => $value)
+      { echo '<p>The value of <span>'.$name."</span> is <span>".$value."</span></p>"; }
+    } else { ?>
+    <p>There were no variables found SERVER SIDE lurking as COOKIEs in your browser.</p>
+    <?php } ?>
+    <h4>These are the cookies that are on your machine, detected CLIENT SIDE using javascript:</h4>
+    <p><span><script>document.write(document.cookie);</script></span></p>
+    <hr/><h4>Click <a href="<?php echo $_SERVER['HTTP_REFERER'];?>">here</a> to go back to your form, or hit the backspace key.</h4>
+    */
+    ?>
+    </div>
 </body>
 </html>
