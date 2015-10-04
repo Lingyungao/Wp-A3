@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Pc
- * Date: 2015/9/27
- * Time: 12:29
- */
 session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
@@ -115,15 +109,15 @@ function nameVal($req)
     </nav>
     <!-- ~~~~Navigation area><!-->
     <!-- Ticket Detail -->
-    <form id="1">
-        <?php
-        echo $_POST['moviename'];
-        ?> (Rank:<?php echo $_POST['movierank']; ?>)
+    <?php
+        if ($_POST['movieid']!="1")
+            echo "<form id='1'>";
+            echo "{$_POST['moviename']}";
+            echo "(Rank: {$_POST['movierank']})
         <br>
-        Showing at <?php echo $_POST['movieday']; ?>
-        <?php echo $_POST['movietime']; ?>
+        Showing at {$_POST['movieday']}, {$_POST['movietime']}
         <br>
-        <table style="width:100%">
+        <table style=\"width:100%\">
             <style>
                 table, th, td {
                     border: 0px solid #FFF;
@@ -134,113 +128,111 @@ function nameVal($req)
                     text-align: left;
                 }
             </style>
-            <tr class="table-background-first">
+            <tr class=\"table-background-first\">
                 <th>Ticket Type</th>
                 <th>Cost</th>
                 <th>Qty</th>
                 <th>Seats</th>
                 <th>Subtotal</th>
-            </tr>
-            <?php
-            if ($_POST['samovieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Adult seats</td>
-            <td>$12.00</td>
-            <td>{$_POST['samovieseat']}</td>
-            <td>{$_POST['samovieseatnum']}</td>
-            <td>{$_POST['saprice']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['spmovieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Concession seats</td>
-            <td>$10.00</td>
-            <td>{$_POST['spmovieseat']}</td>
-            <td>{$_POST['spmovieseatnum']}</td>
-            <td>{$_POST['spprice']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['scmovieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Child seats</td>
-            <td>$8.00</td>
-            <td>{$_POST['scmovieseat']}</td>
-            <td>{$_POST['scmovieseatnum']}</td>
-            <td>{$_POST['scprice']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['famovieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>First Class Adult seats</td>
-            <td>$25.00</td>
-            <td>{$_POST['famovieseat']}</td>
-            <td>{$_POST['famovieseatnum']}</td>
-            <td>{$_POST['faprice']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['fcmovieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>First Class Child seats</td>
-            <td>$20.00</td>
-            <td>{$_POST['fcmovieseat']}</td>
-            <td>{$_POST['fcmovieseatnum']}</td>
-            <td>{$_POST['fcprice']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['b1movieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Beanbag seats (single person)</td>
-            <td>$20.00</td>
-            <td>{$_POST['b1movieseat']}</td>
-            <td>{$_POST['b1movieseatnum']}</td>
-            <td>{$_POST['b1price']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['b2movieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Beanbag seats (Up to 2 people)</td>
-            <td>$20.00</td>
-            <td>{$_POST['b2movieseat']}</td>
-            <td>{$_POST['b2movieseatnum']}</td>
-            <td>{$_POST['b2price']}</td>
-        </tr>";
-            ?>
-            <?php
-            if ($_POST['b3movieseat']!="0")
-                echo
-                "<tr class='table-background-second'>
-            <td>Beanbag seats (Up to 3 children)</td>
-            <td>$20.00</td>
-            <td>{$_POST['b3movieseat']}</td>
-            <td>{$_POST['b3movieseatnum']}</td>
-            <td>{$_POST['b3price']}</td>
-        </tr>";
-            ?>
+            </tr>";
+                if ($_POST['samovieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Adult seats</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['samovieseat']}</td>
+                    <td>{$_POST['samovieseatnum']}</td>
+                    <td>{$_POST['saprice']}</td>
+                    </tr>";
+
+                if ($_POST['spmovieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Concession seats</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['spmovieseat']}</td>
+                    <td>{$_POST['spmovieseatnum']}</td>
+                    <td>{$_POST['spprice']}</td>
+                    </tr>";
+
+                if ($_POST['scmovieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Child seats</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['scmovieseat']}</td>
+                    <td>{$_POST['scmovieseatnum']}</td>
+                    <td>{$_POST['scprice']}</td>
+                    </tr>";
+
+                if ($_POST['famovieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>First Class Adult seats</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['famovieseat']}</td>
+                    <td>{$_POST['famovieseatnum']}</td>
+                    <td>{$_POST['faprice']}</td>
+                    </tr>";
+
+                if ($_POST['fcmovieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>First Class Child seats</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['fcmovieseat']}</td>
+                    <td>{$_POST['fcmovieseatnum']}</td>
+                    <td>{$_POST['fcprice']}</td>
+                    </tr>";
+                if ($_POST['b1movieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Beanbag seats (single person)</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['b1movieseat']}</td>
+                    <td>{$_POST['b1movieseatnum']}</td>
+                    <td>{$_POST['b1price']}</td>
+                    </tr>";
+
+                if ($_POST['b2movieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Beanbag seats (Up to 2 people)</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['b2movieseat']}</td>
+                    <td>{$_POST['b2movieseatnum']}</td>
+                    <td>{$_POST['b2price']}</td>
+                    </tr>";
+
+                if ($_POST['b3movieseat']!="0")
+                    echo
+                    "<tr class='table-background-second'>
+                    <td>Beanbag seats (Up to 3 children)</td>
+                    <td>$12.00</td>
+                    <td>{$_POST['b3movieseat']}</td>
+                    <td>{$_POST['b3movieseatnum']}</td>
+                    <td>{$_POST['b3price']}</td>
+                    </tr>";
+
+                    ?>
             Delete from Cart
             </table>
     </form>
-
+    <br>
+    <br>
+    <br>
     <div>
         <?php
         echo
         "Total: {$_POST['price']}
     <br>
+    <br>
     Meal and Movie Deal Voucher: {$_POST['moviedealvoucher']}
     <br>
+    <br>
     Grand Total: {$_POST['grandprice']}
+    <br>
+    <br>
     <br>
     Voucher Code: <input type='text' name='moviedealvoucher' id='moviedealvoucher'> <input type='submit' value='Apply'> <input type='submit' value='empty cart'> <input type='submit' value='Check out'>";
         ?>
