@@ -109,13 +109,16 @@ function nameVal($req)
     </nav>
     <!-- ~~~~Navigation area><!-->
     <!-- Ticket Detail -->
+    <form name='checkout' action='check-out.php' method='post'>
     <?php
         if ($_POST['movieid']!="1")
             echo "<form id='1'>";
-            echo "{$_POST['moviename']}";
-            echo "(Rank: {$_POST['movierank']})
+            echo "{$_POST['moviename']}<input type=\"hidden\" name=\"moviename\" value=\"{$_POST['moviename']}\">";
+            echo "<p>(Rank: {$_POST['movierank']})</p>
         <br>
-        Showing at {$_POST['movieday']}, {$_POST['movietime']}
+        Showing at {$_POST['movieday']}<input type=\"hidden\" name=\"movieday\" value=\"{$_POST['movieday']}\">, {$_POST['movietime']}<input type=\"hidden\" name=\"movietime\" value=\"{$_POST['movietime']}\">
+        <br>
+        <br>
         <br>
         <table style=\"width:100%\">
             <style>
@@ -140,84 +143,100 @@ function nameVal($req)
                     "<tr class='table-background-second'>
                     <td>Adult seats</td>
                     <td>$12.00</td>
-                    <td>{$_POST['samovieseat']}</td>
-                    <td>{$_POST['samovieseatnum']}</td>
-                    <td>{$_POST['saprice']}</td>
+                    <td><input value=\"{$_POST['samovieseat']}\"><input type=\"hidden\" name=\"samovieseat\" value=\"{$_POST['samovieseat']}\"></td>
+                    <td>{$_POST['samovieseatnum']}<input type=\"hidden\" name=\"samovieseatnum\" value=\"{$_POST['samovieseatnum']}\"></td>
+                    <td>{$_POST['saprice']}<input type=\"hidden\" name=\"saprice\" value=\"{$_POST['saprice']}\"></td>
                     </tr>";
+                else
+                    echo "<input value=\"{$_POST['samovieseat']}\"><input type=\"hidden\" name=\"samovieseat\" value=\"{$_POST['samovieseat']}\">";
 
                 if ($_POST['spmovieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>Concession seats</td>
                     <td>$12.00</td>
-                    <td>{$_POST['spmovieseat']}</td>
-                    <td>{$_POST['spmovieseatnum']}</td>
-                    <td>{$_POST['spprice']}</td>
+                    <td>{$_POST['spmovieseat']}<input type=\"hidden\" name=\"spmovieseat\" value=\"{$_POST['spmovieseat']}\"></td>
+                    <td>{$_POST['spmovieseatnum']}<input type=\"hidden\" name=\"spmovieseatnum\" value=\"{$_POST['spmovieseatnum']}\"></td>
+                    <td>{$_POST['spprice']}<input type=\"hidden\" name=\"spprice\" value=\"{$_POST['spprice']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"spmovieseat\" value=\"0\">";
 
                 if ($_POST['scmovieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>Child seats</td>
                     <td>$12.00</td>
-                    <td>{$_POST['scmovieseat']}</td>
-                    <td>{$_POST['scmovieseatnum']}</td>
-                    <td>{$_POST['scprice']}</td>
+                    <td>{$_POST['scmovieseat']}<input type=\"hidden\" name=\"scmovieseat\" value=\"{$_POST['scmovieseat']}\"></td>
+                    <td>{$_POST['scmovieseatnum']}<input type=\"hidden\" name=\"scmovieseatnum\" value=\"{$_POST['scmovieseatnum']}\"></td>
+                    <td>{$_POST['scprice']}<input type=\"hidden\" name=\"scprice\" value=\"{$_POST['scprice']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"scmovieseat\" value=\"0\">";
 
                 if ($_POST['famovieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>First Class Adult seats</td>
                     <td>$12.00</td>
-                    <td>{$_POST['famovieseat']}</td>
-                    <td>{$_POST['famovieseatnum']}</td>
-                    <td>{$_POST['faprice']}</td>
+                    <td>{$_POST['famovieseat']}<input type=\"hidden\" name=\"famovieseat\" value=\"{$_POST['famovieseat']}\"></td>
+                    <td>{$_POST['famovieseatnum']}<input type=\"hidden\" name=\"famovieseatnum\" value=\"{$_POST['famovieseatnum']}\"></td>
+                    <td>{$_POST['faprice']}<input type=\"hidden\" name=\"faprice\" value=\"{$_POST['faprice']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"famovieseat\" value=\"0\">";
 
                 if ($_POST['fcmovieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>First Class Child seats</td>
                     <td>$12.00</td>
-                    <td>{$_POST['fcmovieseat']}</td>
-                    <td>{$_POST['fcmovieseatnum']}</td>
-                    <td>{$_POST['fcprice']}</td>
+                    <td>{$_POST['fcmovieseat']}<input type=\"hidden\" name=\"fcmovieseat\" value=\"{$_POST['fcmovieseat']}\"></td>
+                    <td>{$_POST['fcmovieseatnum']}<input type=\"hidden\" name=\"fcmovieseatnum\" value=\"{$_POST['fcmovieseatnum']}\"></td>
+                    <td>{$_POST['fcprice']}<input type=\"hidden\" name=\"fcprice\" value=\"{$_POST['fcprice']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"fcmovieseat\" value=\"0\">";
+
                 if ($_POST['b1movieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>Beanbag seats (single person)</td>
                     <td>$12.00</td>
-                    <td>{$_POST['b1movieseat']}</td>
-                    <td>{$_POST['b1movieseatnum']}</td>
-                    <td>{$_POST['b1price']}</td>
+                    <td>{$_POST['b1movieseat']}<input type=\"hidden\" name=\"b1movieseat\" value=\"{$_POST['b1movieseat']}\"></td>
+                    <td>{$_POST['b1movieseatnum']}<input type=\"hidden\" name=\"b1movieseatnum\" value=\"{$_POST['b1movieseatnum']}\"></td>
+                    <td>{$_POST['b1price']}<input type=\"hidden\" name=\"b1price\" value=\"{$_POST['b1price']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"b1movieseat\" value=\"0\">";
 
                 if ($_POST['b2movieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>Beanbag seats (Up to 2 people)</td>
                     <td>$12.00</td>
-                    <td>{$_POST['b2movieseat']}</td>
-                    <td>{$_POST['b2movieseatnum']}</td>
-                    <td>{$_POST['b2price']}</td>
+                    <td>{$_POST['b2movieseat']}<input type=\"hidden\" name=\"b2movieseat\" value=\"{$_POST['b2movieseat']}\"></td>
+                    <td>{$_POST['b2movieseatnum']}<input type=\"hidden\" name=\"b2movieseatnum\" value=\"{$_POST['b2movieseatnum']}\"></td>
+                    <td>{$_POST['b2price']}<input type=\"hidden\" name=\"b2price\" value=\"{$_POST['b2price']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"b2movieseat\" value=\"0\">";
 
                 if ($_POST['b3movieseat']!="0")
                     echo
                     "<tr class='table-background-second'>
                     <td>Beanbag seats (Up to 3 children)</td>
                     <td>$12.00</td>
-                    <td>{$_POST['b3movieseat']}</td>
-                    <td>{$_POST['b3movieseatnum']}</td>
-                    <td>{$_POST['b3price']}</td>
+                    <td>{$_POST['b3movieseat']}<input type=\"hidden\" name=\"b3movieseat\" value=\"{$_POST['b3movieseat']}\"></td>
+                    <td>{$_POST['b3movieseatnum']}<input type=\"hidden\" name=\"b3movieseatnum\" value=\"{$_POST['b3movieseatnum']}\"></td>
+                    <td>{$_POST['b3price']}<input type=\"hidden\" name=\"b3price\" value=\"{$_POST['b3price']}\"></td>
                     </tr>";
+                else
+                    echo "<input type=\"hidden\" name=\"b3movieseat\" value=\"0\">";
 
                     ?>
-            Delete from Cart
             </table>
-    </form>
+            <a herf="#">Delete from Cart</a>
     <br>
     <br>
     <br>
@@ -234,8 +253,10 @@ function nameVal($req)
     <br>
     <br>
     <br>
-    Voucher Code: <input type='text' name='moviedealvoucher' id='moviedealvoucher'> <input type='submit' value='Apply'> <input type='submit' value='empty cart'> <input type='submit' value='Check out'>";
-        ?>
+    Voucher Code: <input type='text' name='moviedealvoucher' id='moviedealvoucher'> <input type='submit' value='Apply'> <input type='submit' value='empty cart'> 
+    <input type='submit' value='Check out'>";
+    ?>
+    </form>
     </div>
 
     <!-- POST Tester Form (ie this page has a form that "self submits")  -->

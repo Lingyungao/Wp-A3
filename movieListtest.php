@@ -283,7 +283,7 @@ Silverado&nbsp;&nbsp;&nbsp;
 					<div class="col-1 fut-font" style="width:200px"' id='ass'>Film: </div>
 					<div class="col-2" style="width:190px">
                       <div class="selectWrap172">
-					<select name='movie' id ='movie'  required='required' onchange="everything()" >
+					<select name='moviename' id ='movie'  required='required' onchange="everything()" >
 						<option value='' selected='selected' disabled>Please Select a Film</option>
 						<option value='The Bourne Legacy' id='CH'>Case Closed: Sunflowers of Inferno</option>
 						<option value='AF' id='AF'>The Godfather</option>

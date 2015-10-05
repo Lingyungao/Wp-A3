@@ -91,4 +91,8 @@
                     <td>{$_POST['b3movieseatnum']}</td>
                     <td>{$_POST['b3price']}</td>
                     </tr>";
+                ?>
+    </table>
+</body>
+</html>
 
