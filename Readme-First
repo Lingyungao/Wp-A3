@@ -1,5 +1,7 @@
 variable name: 
-
+Username: username
+email: email
+user phone number: phonenumber
 Movie name: moviename
 Movie day: movieday
 Movie time: movietime
