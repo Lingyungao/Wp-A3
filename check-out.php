@@ -58,10 +58,105 @@
             </td>
         </tr>
         <tr>
-            <td>Silverado
-                <br>
-                Inside Out
-                <?php echo "{$_POST['movieday']},&nbsp;{$_POST['movietime']}";?>
+                <?php
+                    if (isset($samovieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['samovieseatnum']}";
+                        # code...
+                    }
+                    if (isset($spmovieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['spmovieseatnum']}";
+                        # code...
+                    }
+                    if (isset($scmovieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['scmovieseatnum']}";
+                        # code...
+                    }
+                    if (isset($famovieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['famovieseatnum']}";
+                        # code...
+                    }
+                    if (isset($fcmovieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['fcmovieseatnum']}";
+                        # code...
+                    }
+                    if (isset($b1movieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['b1movieseatnum']}";
+                        # code...
+                    }
+                    if (isset($b2movieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['b2movieseatnum']}";
+                        # code...
+                    }
+                    if (isset($b3movieseat)) {
+                        echo "
+                        <td>Silverado
+                        <br>
+                        Inside Out
+                        <br>";
+                        echo "
+                        Adult seats
+                        <br>
+                        {$_POST['b3movieseatnum']}";
+                        # code...
+                    }
+
+                    ?>
                 <br>
                 <br>
                 <br>

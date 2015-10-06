@@ -7,6 +7,42 @@ $valid=array('SA','SP','SC','FA','FC','B1','B2','B3');
 $requiredCount=count($required);
 $validCount=count($valid);
 
+/*movie seat& price valiable */
+$moviename={$_POST['moviename']};
+$movieday={$_POST['movieday']};
+$movietime={$_POST['movietime']};
+$movierank={$_POST['movierank']};
+$movieid={$_POST['movieid']};
+$samovieseat={$_POST['samovieseat']};
+$samovieseatnum={$_POST['samovieseatnum']};
+$saprice={$_POST['saprice']};
+$spmovieseat={$_POST['spmovieseat']};
+$spmovieseatnum={$_POST['spmovieseatnum']};
+$spprice={$_POST['spprice']};
+$scmovieseat={$_POST['scmovieseat']};
+$scmovieseatnum={$_POST['scmovieseatnum']};
+$scprice={$_POST['scprice']};
+$famovieseat={$_POST['famovieseat']};
+$famovieseatnum={$_POST['famovieseatnum']};
+$faprice={$_POST['faprice']};
+$fcmovieseat={$_POST['famovieseat']};
+$fcmovieseatnum={$_POST['famovieseatnum']};
+$fcprice={$_POST['fcprice']};
+$b1movieseat={$_POST['b1movieseat']};
+$b1movieseatnum={$_POST['b1movieseatnum']};
+$b1price={$_POST['b1price']};
+$b2movieseat={$_POST['b2movieseat']};
+$b2movieseatnum={$_POST['b2movieseatnum']};
+$b2price={$_POST['b2price']};
+$b3movieseat={$_POST['b3movieseat']};
+$b3movieseatnum={$_POST['b3movieseatnum']};
+$b3price={$_POST['b3price']};
+
+
+global $moviename, $movieday, $movietime, $movierank, $movieid, $samovieseat, $samovieseatnum, $saprice, $spmovieseat, $spmovieseatnum, $spprice;
+global $scmovieseat, $scmovieseatnum, $scprice, $famovieseat, $famovieseatnum, $faprice, $fcmovieseat, $fcmovieseatnum, $fcprice, $b1movieseat, $b1movieseatnum, $b1price;
+global $b2movieseat, $b2movieseatnum, $b2price, $b3movieseat, $b3movieseatnum, $b3price;
+
 function nameVal($req)
 {
     global $required, $valid, $requiredCount, $validCount;
